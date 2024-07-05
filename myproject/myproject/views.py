@@ -92,7 +92,7 @@ class HelloView(View):
         if client_ip not in ALLOWED_IPS:
             return HttpResponseForbidden('Your IP is not allowed to access this resource.')
 
-        visitor_name = request.GET.get('visitor_name', 'Visitor')
+        visitor_name = request.GET.get('visitor_name', 'David')
         city = request.GET.get('city')
 
         if not city:
@@ -100,7 +100,7 @@ class HelloView(View):
                 geo_response = requests.get(f'https://ipapi.co/{client_ip}/json/')
                 geo_response.raise_for_status()  # Raise an error for bad status codes
                 geo_data = geo_response.json()
-                city = geo_data.get('city', 'New York')
+                city = geo_data.get('city', 'ogbomoso')
             except requests.RequestException as e:
                 return JsonResponse({'error': 'Error fetching location data', 'details': str(e)})
 
