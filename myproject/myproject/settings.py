@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+# PROJECT_DIR = os.path.dirname(os.path.abspath(_file_))
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,13 +27,15 @@ SECRET_KEY = "django-insecure-5=fq44sk)^wz64*2pz&&)%$j^puq3c2^gmf-h!(5ii-)l@6d*o
 WEATHER_API_KEY = '910cd6b8439b559de24e562899061c4f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    "*",
+    'havilah.pythonanywhere.com',
+    '127.0.0.1',
+    'localhost',
 ]
 
-
+CORS_ALLOW_ALL_ORIGINS = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "myproject",
 ]
 
 MIDDLEWARE = [
