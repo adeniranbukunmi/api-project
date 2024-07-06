@@ -87,7 +87,7 @@ class HelloView(View):
         if client_ip:
             client_ip = client_ip.split(',')[0]
         else:
-            client_ip = request.META.get('REMOTE_ADDR', '127.0.0.1')
+            client_ip = request.META.get('REMOTE_ADDR', 'havilah.pythonanywhere.com')
 
         # Check if the client IP is in the allowed list
         if client_ip not in ALLOWED_IPS:
