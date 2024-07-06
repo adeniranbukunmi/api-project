@@ -77,7 +77,8 @@ from django.http import JsonResponse, HttpResponseForbidden
 from django.views import View
 from django.conf import settings
 
-ALLOWED_IPS = ['127.0.0.1', "havilah.pythonanywhere.com"]  # Start with a default allowed IP
+# ALLOWED_IPS = ['127.0.0.1']  # Start with a default allowed IP
+ALLOWED_IPS = ['havilah.pythonanywhere.com']  # restrict it to allow the domain name  after  deployment
 
 class HelloView(View):
     def get(self, request):
