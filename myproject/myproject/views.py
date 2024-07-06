@@ -78,7 +78,7 @@ from django.views import View
 from django.conf import settings
 
 # ALLOWED_IPS = ['127.0.0.1']  # Start with a default allowed IP
-ALLOWED_IPS = ['havilah.pythonanywhere.com']  # restrict it to allow the domain name  after  deployment
+ALLOWED_IPS = ['127.0.0.1','102.215.57.153']  # restrict it to allow the domain name  after  deployment
 
 class HelloView(View):
     def get(self, request):
@@ -87,13 +87,13 @@ class HelloView(View):
         if client_ip:
             client_ip = client_ip.split(',')[0]
         else:
-            client_ip = request.META.get('REMOTE_ADDR', 'havilah.pythonanywhere.com')
+            client_ip = request.META.get('REMOTE_ADDR', '127.0.0.1')  #Default to '127.0.0.1' if not found
 
         # Check if the client IP is in the allowed list
         if client_ip not in ALLOWED_IPS:
             return HttpResponseForbidden('Your IP is not allowed to access this resource.')
 
-        visitor_name = request.GET.get('visitor_name', 'David')
+        visitor_name = request.GET.get('visitor_name', 'Visitor')
         city = request.GET.get('city')
 
         if not city:
