@@ -139,7 +139,7 @@ def hello(request):
     client_ip = request.META.get('HTTP_X_FORWARDED_FOR', request.META.get('REMOTE_ADDR'))
     
 
-    ip_address_url = f"http://api.weatherapi.com/v1/ip.json?key={settings.WEATHER_API_KEY}&q={client_ip}"
+    ip_address_url = f"http://api.weatherapi.com/v1/ip.json?key={settings.URL}&q={client_ip}"
 
     ip_response = requests.get(ip_address_url)
     ip_result = ip_response.json()
@@ -150,7 +150,7 @@ def hello(request):
         location = 'Unknown'
         print('Location not valid! Enter your city.')
 
-    weather_url = f"http://api.weatherapi.com/v1/current.json?key={settings.WEATHER_API_KEY}&q={location}"
+    weather_url = f"http://api.weatherapi.com/v1/current.json?key={settings.URL}&q={location}"
 
     weather_response = requests.get(weather_url)
     

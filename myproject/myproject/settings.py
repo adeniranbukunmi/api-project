@@ -12,19 +12,21 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 # PROJECT_DIR = os.path.dirname(os.path.abspath(_file_))
 
-
+load_dotenv()
+URL = os.getenv('URL')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-5=fq44sk)^wz64*2pz&&)%$j^puq3c2^gmf-h!(5ii-)l@6d*o"
 
-WEATHER_API_KEY = '083cb24041834b3fb54134257240607'
+WEATHER_API_KEY = '083cb24041834b3fb541342572406'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
